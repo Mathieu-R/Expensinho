@@ -1,0 +1,7 @@
+[
+  {
+    "path": "./dist/bootstrap.js",
+    "webpack": false,
+    "limit": "500 ms"
+  }
+]

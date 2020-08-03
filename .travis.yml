@@ -1,0 +1,19 @@
+notifications:
+  email: false
+sudo: required
+language: node_js
+dist: trusty
+node_js:
+  - stable
+addons:
+ chrome: stable
+cache:
+  directories:
+    - node_modules
+install:
+  - npm install
+script:
+  - npm run build
+  - npm run bundlesize
+after_success:
+  - npm run lighthouse --perf=80  -- https://expensinho.herokuapp.com/

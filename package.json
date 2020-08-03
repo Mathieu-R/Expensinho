@@ -1,0 +1,22 @@
+{
+  "name": "expensinho",
+  "version": "1.0.0",
+  "description": "Never run out of money. Be a good manager.",
+  "main": "src/bootstrap.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mathieu-R/Expensinho.git"
+  },
+  "keywords": [
+    "money"
+  ],
+  "author": "Mathieu Rousseau <mathieu0709@gmail.com> (https://github.com/Mathieu-R)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mathieu-R/Expensinho/issues"
+  },
+  "homepage": "https://github.com/Mathieu-R/Expensinho#readme"
+}

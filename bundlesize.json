@@ -1,0 +1,8 @@
+{
+  "files": [
+    {
+      "path": "./dist/bootstrap.js",
+      "maxSize": "200kB"
+    }
+  ]
+}
