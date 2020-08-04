@@ -4,7 +4,26 @@
   "description": "Never run out of money. Be a good manager.",
   "main": "src/bootstrap.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run build-css && npm run copy && npm run watch",
+    "build": "npm run build-js && npm run build-css && npm run copy",
+    "watch": "concurrently \"npm run watch-js\" \"npm run watch-css\"",
+    "watch-js": "rollup -wc build/rollup.config.js",
+    "watch-css": "node-sass src/style -w ./dist/css/keys-practice.css",
+    "build-js": "rollup -c build/rollup.config.prod.js",
+    "build-css": "npm run create-css-folder && node-sass src/style/index.scss ./dist/css/keys-practice.css && npm run clean-css",
+    "copy": "npm run copy-static && npm run copy-manifest && npm run copy-sw",
+    "copy-static": "copy src/static dist/static",
+    "copy-manifest": "cp-cli src/manifest.json dist/manifest.json",
+    "copy-sw": "cp-cli src/sw.js dist/sw.js",
+    "clean-css": "node build/clean-css",
+    "create-css-folder": "mkdirp ./dist/css",
+    "release": "npm run build && npm version patch",
+    "serve": "node server/index.js",
+    "serve:heroku": "NODE_ENV=production npm run serve",
+    "type-check": "tsc --noEmit",
+    "bundlesize": "bundlesize --config bundlesize.json && size-limit",
+    "lighthouse": "lighthousebot",
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
