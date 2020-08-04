@@ -22,7 +22,6 @@
     "serve:heroku": "NODE_ENV=production npm run serve",
     "type-check": "tsc --noEmit",
     "bundlesize": "bundlesize --config bundlesize.json && size-limit",
-    "lighthouse": "lighthousebot",
     "heroku-postbuild": "npm run build"
   },
   "repository": {
@@ -37,5 +36,10 @@
   "bugs": {
     "url": "https://github.com/Mathieu-R/Expensinho/issues"
   },
-  "homepage": "https://github.com/Mathieu-R/Expensinho#readme"
+  "homepage": "https://github.com/Mathieu-R/Expensinho#readme",
+  "dependencies": {
+    "@webcomponents/custom-elements": "^1.4.2",
+    "@webcomponents/webcomponentsjs": "^2.4.4",
+    "idb-keyval": "^3.2.0"
+  }
 }

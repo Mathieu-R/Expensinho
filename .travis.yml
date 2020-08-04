@@ -10,10 +10,12 @@ addons:
 cache:
   directories:
     - node_modules
+before_install:
+  - npm install -g @lhci/cli@0.4.x
 install:
   - npm install
 script:
   - npm run build
   - npm run bundlesize
 after_success:
-  - npm run lighthouse --perf=80  -- https://expensinho.herokuapp.com/
+  - lhci autorun
