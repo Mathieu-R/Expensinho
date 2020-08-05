@@ -4,8 +4,8 @@
   "description": "Never run out of money. Be a good manager.",
   "main": "src/bootstrap.ts",
   "scripts": {
-    "watch": "rollup -wc build/rollup.config.js",
-    "build": "rollup -c build/rollup.config.prod.js",
+    "watch": "rollup -wc build/rollup.config.js --debug",
+    "build": "rollup -c build/rollup.config.js",
     "release": "npm run build && npm version patch",
     "serve": "node server/index.js",
     "serve:heroku": "NODE_ENV=production npm run serve",

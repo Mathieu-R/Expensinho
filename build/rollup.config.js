@@ -14,7 +14,7 @@ const version = pkg.version;
 // clean dist folder
 rimraf.sync("dist");
 
-function buildConfig({prerender, watch} = {}) {
+function buildConfig({debug}) {
   return {
     input: {
       bootstrap: 'src/bootstrap.ts',
@@ -23,7 +23,7 @@ function buildConfig({prerender, watch} = {}) {
     output: {
       dir: 'dist',
       format: 'amd',
-      sourcemap: true,
+      sourcemap: debug ? true : false,
       entryFileNames: "[name].js",
       chunkFileNames: "[name]-[hash].js"
     },
@@ -36,7 +36,7 @@ function buildConfig({prerender, watch} = {}) {
         watch: 'src/style'
       }),
       postcss({
-        minimize: true,
+        minimize: debug ? false : true,
         modules: {
           generateScopedName: "[hash:base64:5]"
         },
@@ -55,7 +55,7 @@ function buildConfig({prerender, watch} = {}) {
       replace({
         delimiters: ['{{', '}}'],
         version,
-        ENVIRONMENT: JSON.stringify('development')
+        ENVIRONMENT: debug ? JSON.stringify('development') : JSON.stringify('production')
       }),
       progress(),
       filesize()
@@ -63,9 +63,6 @@ function buildConfig({prerender, watch} = {}) {
   }
 }
 
-export default function({watch}) {
-  return [
-    buildConfig({watch, prerender: false}),
-    buildConfig({watch, prerender: true})
-  ];
+export default function({debug}) {
+  return buildConfig({debug})
 }
