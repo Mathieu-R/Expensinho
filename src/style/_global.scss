@@ -1,0 +1,26 @@
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  color: #FFF;
+  $mobile: 530px;
+  $background-color: #e5e4f0;
+  $black-color: #242a2d;
+  $light-gray-color: #636a6c;
+  $dark-gray-color: #525252;
+  $green-color: #26ae67;
+  $red-color: #e76240;
+
+  @media screen and (max-width: var(--mobile)) {
+    font-size: 16px;
+  }
+}
+body {
+  margin: 0;
+  padding: 5px;
+  overflow-x: hidden;
+  min-height: 100vh;
+  background: $background-color;
+}
